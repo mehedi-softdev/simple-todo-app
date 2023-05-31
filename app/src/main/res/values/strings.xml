@@ -3,4 +3,5 @@
     <string name="todo">TODO</string>
     <string name="task_label">All Tasks</string>
     <string name="enter_task_here">Enter your today task</string>
+    <string name="task_end_date">Task End Date</string>
 </resources>

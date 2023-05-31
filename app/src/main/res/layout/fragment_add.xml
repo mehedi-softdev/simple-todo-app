@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddFragment">
+    tools:context=".AddTaskFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_task_input_layout"
@@ -14,7 +14,7 @@
         android:layout_marginTop="50dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/task_name"
+            android:id="@+id/et_task_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:autofillHints=""
@@ -23,6 +23,27 @@
             android:inputType="text"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/select_date_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task_end_date"
+        android:layout_below="@+id/et_task_input_layout"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="15dp"/>
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleLargeInverse"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/blue1"
+        android:visibility="gone"
+        />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

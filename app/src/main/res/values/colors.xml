@@ -4,6 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue1">#58a6e3</color>
     <color name="background">#f3f3f4</color>
-    <color name="check_box">#29d8b3</color>
     <color name="task_row_background">#fefeff</color>
+    <color name="overlay_color">#d9d9d9</color>
+    <color name="checkbox_checked_bg_color">#29d8b3</color>
+    <color name="checkbox_unchecked_bg_color">#ffffff</color>
 </resources>

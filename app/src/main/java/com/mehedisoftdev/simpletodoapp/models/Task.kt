@@ -8,5 +8,6 @@ data class Task(
     @PrimaryKey(autoGenerate = true)
     val taskId: Int,
     val taskName: String,
-    val isComplete: Boolean
+    val endDate: String,
+    var isComplete: Boolean
 )

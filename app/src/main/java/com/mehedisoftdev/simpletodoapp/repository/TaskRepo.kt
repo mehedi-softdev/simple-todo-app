@@ -2,17 +2,26 @@ package com.mehedisoftdev.simpletodoapp.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.map
 import com.mehedisoftdev.simpletodoapp.db.TaskDatabase
 import com.mehedisoftdev.simpletodoapp.models.Task
 
 class TaskRepo(private val taskDatabase: TaskDatabase) {
-    private val taskLiveMutableData = MutableLiveData<List<Task>>()
-    val taskLiveData: LiveData<List<Task>> get() = taskLiveMutableData
+    val allTasks: LiveData<List<Task>> = taskDatabase.getTaskDao().getAllTasks()
 
-    // data is fetching only from local cache
-    suspend fun getAllTask() { // fetch all the tasks
-        val task = taskDatabase.getTaskDao().getAllTask()
-        taskLiveMutableData.postValue(task)
+    fun getAllTasksSorted(): LiveData<List<Task>> {
+        return allTasks.map { tasks ->
+            val completedTasks = tasks.filter { it.isComplete }
+            val pendingTasks = tasks.filter { !it.isComplete }
+            pendingTasks + completedTasks
+        }
+    }
+    suspend fun addTask(task: Task) {
+        taskDatabase.getTaskDao().insertTask(task)
+    }
+
+    suspend fun updateTask(task: Task) {
+        taskDatabase.getTaskDao().updateTask(task)
     }
 
 

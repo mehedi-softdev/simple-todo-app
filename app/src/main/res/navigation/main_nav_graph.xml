@@ -6,13 +6,17 @@
     app:startDestination="@id/taskFragment">
 
     <fragment
-        android:id="@+id/addFragment"
-        android:name="com.mehedisoftdev.simpletodoapp.AddFragment"
+        android:id="@+id/addTaskFragment"
+        android:name="com.mehedisoftdev.simpletodoapp.AddTaskFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" >
         <action
-            android:id="@+id/action_addFragment_to_taskFragment"
+            android:id="@+id/action_addTaskFragment_to_taskFragment"
             app:destination="@id/taskFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/taskFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -22,7 +26,11 @@
         android:label="fragment_task"
         tools:layout="@layout/fragment_task" >
         <action
-            android:id="@+id/action_taskFragment_to_addFragment"
-            app:destination="@id/addFragment" />
+            android:id="@+id/action_taskFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
 </navigation>

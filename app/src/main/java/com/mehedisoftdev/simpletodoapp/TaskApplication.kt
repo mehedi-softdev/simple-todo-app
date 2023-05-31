@@ -5,7 +5,7 @@ import com.mehedisoftdev.simpletodoapp.db.TaskDatabase
 import com.mehedisoftdev.simpletodoapp.repository.TaskRepo
 
 class TaskApplication: Application() {
-    private lateinit var taskRepo: TaskRepo
+    lateinit var taskRepo: TaskRepo
 
     override fun onCreate() {
         super.onCreate()
