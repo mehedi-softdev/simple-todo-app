@@ -4,18 +4,15 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mehedisoftdev.simpletodoapp.adapters.TaskAdapter
 import com.mehedisoftdev.simpletodoapp.databinding.FragmentTaskBinding
-import com.mehedisoftdev.simpletodoapp.models.Task
 import com.mehedisoftdev.simpletodoapp.viewmodels.TaskViewModel
-import com.mehedisoftdev.simpletodoapp.viewmodels.TaskViewModelFactory
+
 
 class TaskFragment : Fragment() {
     private var _binding : FragmentTaskBinding? = null
@@ -32,9 +29,8 @@ class TaskFragment : Fragment() {
         binding.taskRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.taskRecyclerView.setHasFixedSize(true)
 
-        val taskRepo = (requireActivity().application as TaskApplication).taskRepo
-        taskViewModel = ViewModelProvider(requireActivity(),
-            TaskViewModelFactory(taskRepo))[TaskViewModel::class.java]
+//        val taskRepo = (requireActivity().application as TaskApplication).taskRepo
+        taskViewModel = ViewModelProvider(requireActivity())[TaskViewModel::class.java]
 
 
         taskAdapter = TaskAdapter(taskViewModel)
@@ -64,5 +60,6 @@ class TaskFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+        _binding = null
     }
 }

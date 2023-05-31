@@ -13,8 +13,6 @@ import com.mehedisoftdev.simpletodoapp.databinding.FragmentAddBinding
 import com.mehedisoftdev.simpletodoapp.models.Task
 import com.mehedisoftdev.simpletodoapp.utils.Constants
 import com.mehedisoftdev.simpletodoapp.viewmodels.TaskViewModel
-import com.mehedisoftdev.simpletodoapp.viewmodels.TaskViewModelFactory
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -30,9 +28,8 @@ class AddTaskFragment : Fragment() {
     ): View? {
         _binding = FragmentAddBinding.inflate(layoutInflater, container, false)
         // init view model
-        val taskRepo = (requireActivity().application as TaskApplication).taskRepo
-        taskViewModel = ViewModelProvider(requireActivity(),
-        TaskViewModelFactory(taskRepo))[TaskViewModel::class.java]
+//        val taskRepo = (requireActivity().application as TaskApplication).taskRepo
+        taskViewModel = ViewModelProvider(requireActivity())[TaskViewModel::class.java]
         calendar = Calendar.getInstance()
 
         // for task end endDate picker
