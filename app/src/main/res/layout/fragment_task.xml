@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskFragment">
+
+
+    <TextView
+        android:id="@+id/label"
+        android:text="@string/task_label"
+        android:textSize="25sp"
+        android:textStyle="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:padding="5dp"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/task_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label"
+        android:layout_marginTop="4dp"
+        android:padding="10dp" />
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/todo"
+        app:backgroundTint="@color/blue1"
+        android:elevation="6dp"
+        app:fabSize="normal"
+        android:scaleType="center"
+        android:src="@drawable/ic_plus"
+        app:tint="@color/white"
+        app:maxImageSize="@dimen/fab_icon_size"
+        app:fabCustomSize="@dimen/fab_size"
+        />
+
+</RelativeLayout>
