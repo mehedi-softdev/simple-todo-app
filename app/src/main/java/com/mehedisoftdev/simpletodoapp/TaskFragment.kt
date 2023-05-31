@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mehedisoftdev.simpletodoapp.adapters.TaskAdapter
 import com.mehedisoftdev.simpletodoapp.databinding.FragmentTaskBinding
 import com.mehedisoftdev.simpletodoapp.viewmodels.TaskViewModel
+import com.mehedisoftdev.simpletodoapp.viewmodels.TaskViewModelFactory
 
 
 class TaskFragment : Fragment() {
@@ -29,8 +30,8 @@ class TaskFragment : Fragment() {
         binding.taskRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.taskRecyclerView.setHasFixedSize(true)
 
-//        val taskRepo = (requireActivity().application as TaskApplication).taskRepo
-        taskViewModel = ViewModelProvider(requireActivity())[TaskViewModel::class.java]
+        val taskRepo = (requireActivity().application as TaskApplication).taskRepo
+        taskViewModel = ViewModelProvider(requireActivity(), TaskViewModelFactory(taskRepo))[TaskViewModel::class.java]
 
 
         taskAdapter = TaskAdapter(taskViewModel)
